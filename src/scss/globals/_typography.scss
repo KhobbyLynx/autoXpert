@@ -28,4 +28,9 @@ a:active {
 .nav-link {
     color: var(--gray-200);
     font-family: var(--Inter);
+    cursor: pointer;
+    transition: var(--speed-6);
+    &:hover {
+        color: var(--misty-sky);
+    }
 }

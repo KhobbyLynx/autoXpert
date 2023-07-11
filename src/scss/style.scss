@@ -46,8 +46,9 @@
 .mt50 {
   margin-top: 50px;
 }
-.bb {
-  border-bottom: 1px solid var(--cl-gray-300);
+
+.mb50 {
+  margin-bottom: 50px;
 }
 
 .gap-5 {
@@ -157,83 +158,8 @@
   width: 100%;
 }
 
-.toggle-menu-icon {
-  font-size: 38px;
-  color: var(--cl-black);
-  margin-right: 10px;
-}
-
-.animate-menu-in {
-  transform: translateX(0);
-  transition: var(--speed) ease;
-}
-
-.animate-menu-out {
-  transform: translateX(-150vh);
-  transition: var(--speed) ease;
-}
-
-.hamburger-menu {
-  width: 80vw;
-  z-index: 999;
-  position: fixed;
-  overflow-y: scroll;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  background-color: var(--cl-gray-100);
-
-  @media screen and (min-width: "999px") {
-    display: none;
-  }
-
-  @media screen and (max-width: "999px") {
-    padding: 10px 40px;
-    padding-bottom: 16px;
-  }
-
-  @media screen and (max-width: "699px") {
-    padding: 10px 20px;
-  }
-  @media screen and (max-width: "387px") {
-    padding: 10px;
-  }
-
-  &__menu-icon {
-    max-width: 30px;
-    max-height: 30px;
-  }
-  &__logo-container {
-    span {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--primary-color);
-      margin-left: 10px;
-    }
-  }
-  &__tab {
-    border-top: 1px solid var(--cl-gray-300);
-    padding: 15px 0;
-    gap: 30px;
-    span {
-      font-size: 15px;
-      text-transform: capitalize;
-    }
-  }
-  &__head-tab {
-    padding: 20px 0;
-    h3 {
-      font-size: 14px;
-      font-family: "League Spartan", sans-serif;
-      font-weight: 600;
-      text-transform: uppercase;
-      color: var(--cl-orange-400);
-    }
-  }
-}
-
 .logo {
-  width: 100px;
+  width: 110px;
   height: auto;
 }
 
@@ -255,6 +181,7 @@
 .dropdown {
   z-index: 9;
   position: absolute;
+  top: 50px;
   background-color: var(--tertiary-bg);
   border-radius: var(--border-radius-6);
   padding: 20px;
@@ -276,102 +203,6 @@
     color: var(--gray-800);
     font-size: 13px;
     font-weight: 500;
-  }
-}
-
-.menu {
-  z-index: 9;
-  position: relative;
-  &__dropdown {
-    position: absolute;
-    top: 45px;
-    right: -20px;
-    background-color: var(--secondary-bg);
-    border-radius: var(--border-radius);
-    padding: 10px 20px;
-    width: 200px;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: -5px;
-      right: 20px;
-      height: 20px;
-      width: 20px;
-      background: var(--secondary-bg);
-      transform: rotate(45deg);
-    }
-  }
-  .active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    transition: var(--speed) ease;
-  }
-  .inactive {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: var(--speed) ease;
-  }
-  h3 {
-    width: 100%;
-    font-size: 18px;
-    padding: 20px 0;
-    font-weight: 500;
-    font-size: 18px;
-    color: var(--cl-orange-400);
-    line-height: 1.2rem;
-    span {
-      font-size: 14px;
-      color: var(--secondary-color);
-      font-weight: 400;
-      padding-top: 5px;
-    }
-  }
-  ul {
-    li {
-      padding: 12px 0;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-      list-style: none;
-      cursor: pointer;
-      img {
-        max-width: 25px;
-        max-height: 25px;
-        margin-right: 10px;
-        transition: var(--speed);
-        opacity: 0.8;
-      }
-      span {
-        max-width: 130px;
-        margin-left: 10px;
-        transition: var(--speed);
-        font-size: 14px;
-        color: var(--cl-gray-700);
-        text-transform: capitalize;
-        cursor: pointer;
-      }
-      &:hover {
-        span {
-          color: var(--secondary-color);
-        }
-        img {
-          opacity: 1;
-        }
-      }
-    }
-  }
-  .logout-btn {
-    background-color: var(--cl-orange-400);
-    color: var(--cl-gray-100);
-    width: 100%;
-    padding: 8px 0;
-    margin-top: 10px;
-    border: none;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 600;
-    border-radius: var(--border-radius);
   }
 }
 
@@ -400,6 +231,7 @@
 .nav-link-icon {
   font-size: 20px;
   color: var(--gray-100);
+  cursor: pointer;
 }
 
 .btn {
@@ -431,4 +263,21 @@
     background-color: var(--gray-200);
     font-weight: 600;
   }
+}
+
+.inactive {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50px);
+  transition: var(--speed-6) ease;
+}
+.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-36px);
+  transition: var(--speed-6) ease;
+}
+
+.hide {
+  display: none;
 }

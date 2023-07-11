@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import './ShopDropdown.scss'
 
-const ShopDropdown = () => {
+const ShopDropdown = ({ setDropdown, dropdown }) => {
   return (
     <div className='shopdropdown dropdown'>
       <div className='shopdropdown__car-condition'>

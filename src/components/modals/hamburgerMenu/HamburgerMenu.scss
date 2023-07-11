@@ -1,0 +1,77 @@
+.animate-menu-in {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: var(--speed-6) ease;
+}
+
+.animate-menu-out {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px);
+    transition: var(--speed-6) ease;
+}
+
+.hamburger-menu {
+    width: 80vw;
+    z-index: 99;
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: var(--tertiary-bg);
+
+    @media screen and (max-width: "699px") {
+        display: none;
+        padding-bottom: 16px;
+        padding: 10px 20px;
+    }
+    @media screen and (max-width: "387px") {
+        padding: 10px;
+    }
+
+    .bb {
+        border-bottom: 1px solid var(--gray-500);
+    }
+
+    .menu-close-icon {
+        font-size: 30px;
+        color: var(--midnight-navy);
+        cursor: pointer;
+    }
+
+    &__menu-icon {
+        max-width: 20px;
+        max-height: 30px;
+    }
+
+    &__tab {
+        border-top: 1px solid var(--gray-500);
+        padding: 15px 0;
+        gap: 30px;
+        span {
+            font-size: 15px;
+            text-transform: capitalize;
+            color: var(--gray-800);
+        }
+        &:nth-child(8) {
+            border-bottom: 1px solid var(--gray-500);
+        }
+    }
+    &__head-tab {
+        padding: 20px 0;
+        h3 {
+            font-size: 14px;
+            font-family: "League Spartan", sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--midnight-navy);
+        }
+
+        .arrow-right {
+            color: var(--gray-700);
+        }
+    }
+}

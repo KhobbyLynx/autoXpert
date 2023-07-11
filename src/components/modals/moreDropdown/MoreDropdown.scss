@@ -1,11 +1,10 @@
 .more {
-    top: 43px;
-    left: 360px;
+    left: 10px;
     width: 160px;
 
     &::before {
         top: -5px;
-        right: 80%;
+        left: 20px;
     }
 
     span {

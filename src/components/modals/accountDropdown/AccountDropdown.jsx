@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import './AccountDropdown.scss'
 
-const AccountDropdown = () => {
+const AccountDropdown = ({ setDropdown, dropdown }) => {
   return (
     <div className='account-dropdown dropdown df fdc gap-10'>
       <button className='btn btn-mv'>Make Payment</button>
