@@ -1,0 +1,10 @@
+.account-dropdown {
+    top: 43px;
+    right: 20px;
+    width: 180px;
+
+    &::before {
+        top: -5px;
+        right: 10px;
+    }
+}

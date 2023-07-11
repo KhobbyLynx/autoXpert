@@ -1,0 +1,22 @@
+.more {
+    top: 43px;
+    left: 360px;
+    width: 160px;
+
+    &::before {
+        top: -5px;
+        right: 80%;
+    }
+
+    span {
+        padding-bottom: 10px;
+        &:nth-child(4) {
+            padding-bottom: 0;
+        }
+
+        transition: var(--speed-3) ease;
+        &:hover {
+            color: var(--gray-200);
+        }
+    }
+}

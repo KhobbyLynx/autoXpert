@@ -1,0 +1,63 @@
+.shopdropdown {
+    top: 43px;
+    left: 120px;
+    width: 500px;
+
+    &::before {
+        top: -5px;
+        right: 80%;
+    }
+    .options {
+        display: flex;
+        span {
+            padding-right: 20px;
+            cursor: pointer;
+
+            &:hover {
+                transition: var(--speed-3) ease;
+                color: var(--gray-100);
+            }
+        }
+    }
+
+    &__car-condition {
+        display: flex;
+        flex-direction: column;
+        .options {
+            span {
+                background-color: var(--primary-bg);
+                color: var(--gray-100);
+                border-radius: var(--border-radius-6);
+                padding: 10px;
+                font-size: 12px;
+                &:hover {
+                    background-color: var(--gray-200);
+                    color: var(--midnight-navy);
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    .types {
+        display: flex;
+        gap: 10px;
+        div {
+            gap: 10px;
+        }
+    }
+    .brand-logo-container {
+        background-color: var(--gray-100);
+        cursor: pointer;
+        width: 42px;
+        height: 42px;
+        border-radius: var(--border-radius-6);
+        transition: var(--speed-6) ease;
+        &:hover {
+            img {
+                transition: var(--speed-6) ease;
+                width: 30px;
+            }
+            background-color: var(--gray-300);
+        }
+    }
+}

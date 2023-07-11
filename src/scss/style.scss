@@ -50,6 +50,26 @@
   border-bottom: 1px solid var(--cl-gray-300);
 }
 
+.gap-5 {
+  gap: 5px;
+}
+
+.gap-10 {
+  gap: 10px;
+}
+
+.gap-20 {
+  gap: 20px;
+}
+
+.ptb-10 {
+  padding: 10px 0;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
 .no-product-found {
   text-align: center;
   width: 100%;
@@ -213,7 +233,12 @@
 }
 
 .logo {
-  width: 38px;
+  width: 100px;
+  height: auto;
+}
+
+.brand-logo {
+  width: 35px;
   height: auto;
 }
 
@@ -221,6 +246,37 @@
   max-width: 25px;
   max-height: 25px;
   transition: var(--speed);
+}
+
+.pr {
+  position: relative;
+}
+
+.dropdown {
+  z-index: 9;
+  position: absolute;
+  background-color: var(--tertiary-bg);
+  border-radius: var(--border-radius-6);
+  padding: 20px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: var(--tertiary-bg);
+    transform: rotate(45deg);
+  }
+  h6 {
+    color: var(--midnight-navy);
+    font-size: 14px;
+  }
+  span {
+    cursor: pointer;
+    color: var(--gray-800);
+    font-size: 13px;
+    font-weight: 500;
+  }
 }
 
 .menu {
@@ -337,5 +393,42 @@
     @media screen and (max-width: "500px") {
       padding: 0px;
     }
+  }
+}
+
+// ----------- Here ------------
+.nav-link-icon {
+  font-size: 20px;
+  color: var(--gray-100);
+}
+
+.btn {
+  border: none;
+  padding: 8px 10px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+//button midnight-navy background
+.btn-mv {
+  color: var(--gray-200);
+  background-color: var(--midnight-navy);
+  transition: var(--speed-3) ease;
+  &:hover {
+    color: var(--midnight-navy);
+    background-color: var(--gray-200);
+    font-weight: 600;
+  }
+}
+
+//button bluish-green background
+.btn-bg {
+  background-color: var(--bluish-green);
+  color: var(--gray-200);
+  transition: var(--speed-3) ease;
+  &:hover {
+    color: var(--bluish-green);
+    background-color: var(--gray-200);
+    font-weight: 600;
   }
 }

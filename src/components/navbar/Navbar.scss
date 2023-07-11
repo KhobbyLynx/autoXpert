@@ -1,0 +1,20 @@
+.navbar {
+    background-color: var(--primary-bg);
+    height: 42px;
+    padding: 0 30px;
+    position: relative;
+
+    &__ul {
+        padding-inline-start: 50px;
+        gap: 30px;
+        margin-right: auto;
+        .link-text {
+            font-size: 13px;
+            font-weight: 600;
+        }
+    }
+
+    &__icon-link {
+        gap: 20px;
+    }
+}
