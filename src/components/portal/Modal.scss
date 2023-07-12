@@ -12,12 +12,25 @@
     justify-content: center;
     flex-direction: column;
 
-    .close-icon-container {
-        align-self: flex-end;
-        justify-self: flex-end;
-        padding-bottom: 10px;
-        .close-icon {
-            color: var(--red-500);
+    .icon-container {
+        padding-bottom: 26px;
+        .back-icon-container {
+            cursor: pointer;
+            .back-icon {
+                color: var(--midnight-navy);
+            }
+            span {
+                font-family: var(--Inknut-Antiqua);
+                font-size: 14px;
+                color: var(--midnight-navy);
+            }
+        }
+
+        .close-icon-container {
+            margin-left: auto;
+            .close-icon {
+                color: var(--red-500);
+            }
         }
     }
 }

@@ -5,7 +5,22 @@ import Modal from '../portal/Modal'
 import './GeneralFormStyle.scss'
 import { Link } from 'react-router-dom'
 
-const RegisterAccount = ({ open, onClose }) => {
+const RegisterAccount = ({ open, onClose, setOpen }) => {
+  const handleCreateAccount = () => {
+    setOpen((prevState) => ({
+      ...prevState,
+      registerAccount: !prevState.registerAccount,
+      createAccount: !prevState.createAccount,
+    }))
+  }
+
+  const handleSignIn = () => {
+    setOpen((prevState) => ({
+      ...prevState,
+      registerAccount: !prevState.registerAccount,
+      signIn: !prevState.signIn,
+    }))
+  }
   return (
     <>
       <Modal open={open} onClose={onClose}>
@@ -13,11 +28,11 @@ const RegisterAccount = ({ open, onClose }) => {
           <h3>Create an account</h3>
           <button className='btn btn-tr dfacjc field-pad'>
             <FcGoogle className='icon' />
-            <span>Sign in with Google</span>
+            <span>Sign up with Google</span>
           </button>
           <button className='btn btn-tr dfacjc field-pad'>
             <FaApple className='icon' />
-            <span>Sign in with Apple</span>
+            <span>Sign up with Apple</span>
           </button>
           <div className='dfac jsb line-container'>
             <hr className='line' />
@@ -25,7 +40,10 @@ const RegisterAccount = ({ open, onClose }) => {
             <hr className='line' />
           </div>
           <input type='email' placeholder='Email' className='input' />
-          <button className='btn btn-mv dfacjc field-pad'>
+          <button
+            className='btn btn-mv dfacjc field-pad'
+            onClick={handleCreateAccount}
+          >
             <span className='btn-text'>Continue with Email</span>
           </button>
           <div className='form-text df fdc'>
@@ -34,7 +52,7 @@ const RegisterAccount = ({ open, onClose }) => {
               <Link className='form-link'>Privacy Statement</Link> &{' '}
               <Link className='form-link'>Terms of Service</Link>
             </p>
-            <h6>
+            <h6 onClick={handleSignIn}>
               Already have an account?{' '}
               <Link className='form-link'>Sign in.</Link>
             </h6>
