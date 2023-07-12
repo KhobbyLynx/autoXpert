@@ -3,14 +3,18 @@ import { Outlet } from 'react-router-dom'
 import './MainLayout.scss'
 import Navbar from '../../../components/navbar/Navbar'
 import Footer from '../../../components/footer/Footer'
+import { useState } from 'react'
+import RegisterAccount from '../../../components/accountForm/RegisterAccount'
 
 const MainLayout = () => {
+  const [open, setOpen] = useState(false)
   return (
-    <div>
-      <Navbar />
+    <>
+      <RegisterAccount open={open} onClose={() => setOpen(false)} />
+      <Navbar open={open} setOpen={setOpen} />
       <Outlet />
       <Footer />
-    </div>
+    </>
   )
 }
 

@@ -140,10 +140,11 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--cl-bs-6);
+  background-color: var(--bs-6);
   z-index: 99;
 }
 
@@ -236,16 +237,19 @@
 
 .btn {
   border: none;
-  padding: 8px 10px;
   font-size: 13px;
   white-space: nowrap;
+  width: 100%;
 }
-
+.btn-pad {
+  padding: 8px 10px;
+}
 //button midnight-navy background
 .btn-mv {
   color: var(--gray-200);
   background-color: var(--midnight-navy);
   transition: var(--speed-3) ease;
+  cursor: pointer;
   &:hover {
     color: var(--midnight-navy);
     background-color: var(--gray-200);
@@ -258,10 +262,27 @@
   background-color: var(--bluish-green);
   color: var(--gray-200);
   transition: var(--speed-3) ease;
+  cursor: pointer;
   &:hover {
     color: var(--bluish-green);
     background-color: var(--gray-200);
     font-weight: 600;
+  }
+}
+
+//button transparent bg
+.btn-tr {
+  background-color: var(--tranparent);
+  border: 1px solid var(--midnight-navy);
+  border-radius: var(--border-radius-6);
+  cursor: pointer;
+}
+
+.input {
+  width: 100%;
+  outline: none;
+  &::placeholder {
+    color: var(--gray-700);
   }
 }
 

@@ -1,0 +1,85 @@
+.form-text {
+    gap: 10px;
+    .form-link {
+        text-decoration: underline;
+        color: var(--link);
+        transition: var(--speed-3) ease-in-out;
+        &:hover {
+            color: var(--midnight-navy);
+        }
+    }
+}
+.input {
+    padding: 10px;
+    font-size: 16px;
+    color: var(--midnight-navy);
+    background-color: var(--tranparent);
+    border: 1px solid var(--midnight-navy);
+    border-radius: var(--border-radius-6);
+}
+.reg-user {
+    gap: 20px;
+    min-width: 300px;
+    .icon {
+        font-size: 26px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+    span {
+        font-family: var(--Roboto);
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .field-pad {
+        padding: 10px 20px;
+    }
+
+    .line-container {
+        .or {
+            background-color: var(--tertiary-bg);
+            color: var(--midnight-navy);
+            padding: 0 40px;
+        }
+        .line {
+            color: var(--midnight-navy);
+            border: 1px solid var(--gray-600);
+            width: 100%;
+        }
+    }
+
+    h3,
+    p,
+    h6 {
+        color: var(--midnight-navy);
+    }
+    h3 {
+        font-size: 18px;
+        font-weight: 800;
+    }
+    p {
+        font-size: 12px;
+        font-weight: 500;
+    }
+    h6 {
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+    .btn-tr {
+        &:hover {
+            background: var(--gray-200);
+        }
+    }
+
+    .btn {
+        border-radius: var(--border-radius-6);
+        transition: var(--speed-3) ease-in-out;
+        &:hover .btn-text {
+            color: var(--midnight-navy);
+        }
+    }
+    .btn-text {
+        font-weight: 300;
+        color: var(--gray-200);
+    }
+}

@@ -12,7 +12,7 @@ import UserMenuDropdown from '../modals/userMenuDropdown/UserMenuDropdown'
 import HamburgerMenu from '../modals/hamburgerMenu/HamburgerMenu'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({ open, setOpen }) => {
   const shopDropdownRef = useRef(null)
   const moreDropdownRef = useRef(null)
   const accountDropdownRef = useRef(null)
@@ -126,7 +126,7 @@ const Navbar = () => {
                 }
               />
               <div className={` ${dropdown.account ? 'active' : 'inactive'}`}>
-                <AccountDropdown />
+                <AccountDropdown setOpen={setOpen} setDropdown={setDropdown} />
               </div>
             </div>
           ) : (
