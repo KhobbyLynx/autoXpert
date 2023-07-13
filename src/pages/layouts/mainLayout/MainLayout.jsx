@@ -8,6 +8,8 @@ import RegisterAccount from '../../../components/accountForm/RegisterAccount'
 import CreateAccount from '../../../components/accountForm/CreateAccount'
 import SignIn from '../../../components/accountForm/SignIn'
 import ForgetPassword from '../../../components/accountForm/ForgetPassword'
+import ForgetPasswordEmailConfirm from '../../../components/accountForm/ForgetPasswordEmailConfirm'
+import JoinAs from '../../../components/accountForm/JoinAs'
 
 const MainLayout = () => {
   const [open, setOpen] = useState({
@@ -15,12 +17,24 @@ const MainLayout = () => {
     createAccount: false,
     signIn: false,
     forgotPassword: false,
+    confirmForgotPassword: false,
+    joinAs: false,
   })
 
   const [backButton, setBackButton] = useState(true)
 
   return (
     <>
+      <JoinAs
+        open={open.joinAs}
+        onClose={() => setOpen(false)}
+        setOpen={setOpen}
+      />
+      <ForgetPasswordEmailConfirm
+        open={open.confirmForgotPassword}
+        onClose={() => setOpen(false)}
+        setOpen={setOpen}
+      />
       <ForgetPassword
         open={open.forgotPassword}
         onClose={() => setOpen(false)}
@@ -43,7 +57,7 @@ const MainLayout = () => {
         back={backButton}
         setOpen={setOpen}
       />
-      <Navbar open={open} setOpen={setOpen} />
+      <Navbar setOpen={setOpen} />
       <Outlet />
       <Footer />
     </>

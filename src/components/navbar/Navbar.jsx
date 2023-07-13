@@ -12,7 +12,7 @@ import UserMenuDropdown from '../modals/userMenuDropdown/UserMenuDropdown'
 import HamburgerMenu from '../modals/hamburgerMenu/HamburgerMenu'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({ open, setOpen }) => {
+const Navbar = ({ setOpen }) => {
   const shopDropdownRef = useRef(null)
   const moreDropdownRef = useRef(null)
   const accountDropdownRef = useRef(null)
@@ -61,6 +61,13 @@ const Navbar = ({ open, setOpen }) => {
     }
   }, [dropdown])
 
+  const handleSeller = () => {
+    setOpen((prevState) => ({
+      ...prevState,
+      joinAs: !prevState.joinAs,
+    }))
+  }
+
   let currentUser
 
   return (
@@ -91,7 +98,7 @@ const Navbar = ({ open, setOpen }) => {
               <ShopDropdown />
             </div>
           </div>
-          <li className='nav-link dfac gap-5'>
+          <li className='nav-link dfac gap-5' onClick={handleSeller}>
             <p className='link-text'>Sell a Car</p>
           </li>
           <div ref={moreDropdownRef} className='pr'>

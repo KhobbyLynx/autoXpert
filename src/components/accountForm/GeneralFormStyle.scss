@@ -17,6 +17,7 @@
     border: 1px solid var(--midnight-navy);
     border-radius: var(--border-radius-6);
 }
+
 .reg-user {
     gap: 20px;
     min-width: 300px;
@@ -81,5 +82,17 @@
     .btn-text {
         font-weight: 300;
         color: var(--gray-200);
+    }
+}
+
+.forgot-password__email {
+    display: flex;
+    background-color: var(--gray-300);
+    padding: 10px;
+    border-left: 3px solid var(--green-600);
+    border-radius: var(--border-radius-6);
+
+    .icon {
+        color: var(--green-600);
     }
 }

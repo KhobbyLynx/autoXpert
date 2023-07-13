@@ -21,6 +21,14 @@ const RegisterAccount = ({ open, onClose, setOpen }) => {
       signIn: !prevState.signIn,
     }))
   }
+
+  const handleSeller = () => {
+    setOpen((prevState) => ({
+      ...prevState,
+      registerAccount: !prevState.registerAccount,
+      joinAs: !prevState.joinAs,
+    }))
+  }
   return (
     <>
       <Modal open={open} onClose={onClose}>
@@ -56,7 +64,7 @@ const RegisterAccount = ({ open, onClose, setOpen }) => {
               Already have an account?{' '}
               <Link className='form-link'>Sign in.</Link>
             </h6>
-            <h6>
+            <h6 onClick={handleSeller}>
               Are you a dealer? <Link className='form-link'>Sell a car.</Link>
             </h6>
           </div>

@@ -11,6 +11,14 @@ const ForgetPassword = ({ open, onClose, back, setOpen }) => {
       signIn: !prevState.signIn,
     }))
   }
+
+  const handleSubmit = () => {
+    setOpen((prevState) => ({
+      ...prevState,
+      forgotPassword: !prevState.forgotPassword,
+      confirmForgotPassword: !prevState.confirmForgotPassword,
+    }))
+  }
   return (
     <>
       <Modal open={open} onClose={onClose} back={back} goBack={handleGoBack}>
@@ -23,8 +31,11 @@ const ForgetPassword = ({ open, onClose, back, setOpen }) => {
             </p>
           </div>
 
-          <input type='email' placeholder='Password' className='input' />
-          <button className='btn btn-mv dfacjc field-pad'>
+          <input type='email' placeholder='Email' className='input' />
+          <button
+            className='btn btn-mv dfacjc field-pad'
+            onClick={handleSubmit}
+          >
             <span className='btn-text'>Submit</span>
           </button>
           <div className='form-text df fdc'>

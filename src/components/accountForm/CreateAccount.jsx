@@ -11,6 +11,14 @@ const CreateAccount = ({ open, onClose, back, setOpen }) => {
       createAccount: !prevState.createAccount,
     }))
   }
+
+  const handleSeller = () => {
+    setOpen((prevState) => ({
+      ...prevState,
+      createAccount: !prevState.createAccount,
+      joinAs: !prevState.joinAs,
+    }))
+  }
   return (
     <>
       <Modal open={open} onClose={onClose} back={back} goBack={handleGoBack}>
@@ -30,11 +38,11 @@ const CreateAccount = ({ open, onClose, back, setOpen }) => {
             />
           </div>
           <div>
-            <input type='email' placeholder='Password' className='input' />
+            <input type='password' placeholder='Password' className='input' />
             <p>Enter a mininum of 8 characters</p>
           </div>
           <input
-            type='email'
+            type='password'
             placeholder='Confirm Password'
             className='input'
           />
@@ -47,7 +55,7 @@ const CreateAccount = ({ open, onClose, back, setOpen }) => {
               <Link className='form-link'>Privacy Statement</Link> &{' '}
               <Link className='form-link'>Terms of Service</Link>
             </p>
-            <h6>
+            <h6 onClick={handleSeller}>
               Are you a dealer? <Link className='form-link'>Sell a car.</Link>
             </h6>
           </div>
