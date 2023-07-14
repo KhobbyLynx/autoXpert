@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Modal from '../portal/Modal'
 import './GeneralFormStyle.scss'
 
-const CreateAccount = ({ open, onClose, back, setOpen }) => {
+const CreateAccount = ({ open, onClose, back, setOpen, email }) => {
   const handleGoBack = () => {
     setOpen((prevState) => ({
       ...prevState,
@@ -25,14 +25,14 @@ const CreateAccount = ({ open, onClose, back, setOpen }) => {
         <div className='reg-user df fdc'>
           <h3>Create an account</h3>
 
-          <input type='email' placeholder='First name' className='input' />
-          <input type='email' placeholder='Last name' className='input' />
+          <input type='text' placeholder='First name' className='input' />
+          <input type='text' placeholder='Last name' className='input' />
           <div>
             <label htmlFor='email'>Email</label>
             <input
               type='email'
               id='email'
-              placeholder='xyz@gmail.com'
+              value={email}
               className='input'
               disabled
             />

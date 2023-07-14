@@ -1,17 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import { FaApple } from 'react-icons/fa'
 import Modal from '../portal/Modal'
 import './GeneralFormStyle.scss'
 import { Link } from 'react-router-dom'
+import newRequest from '../../utils/newRequest'
 
-const RegisterAccount = ({ open, onClose, setOpen }) => {
-  const handleCreateAccount = () => {
-    setOpen((prevState) => ({
-      ...prevState,
-      registerAccount: !prevState.registerAccount,
-      createAccount: !prevState.createAccount,
-    }))
+const RegisterAccount = ({ open, onClose, setOpen, email, setEmail }) => {
+  const handleCreateAccount = (e) => {
+    e.preventDefault()
+
+    const checkUserExists = async (email) => {
+      try {
+        // Make an API call to check if the user exists
+        const response = await newRequest.get(`/users/checkUser?email=${email}`)
+        const data = await response.data
+
+        if (data.invalidEmail) return alert('Invalid Email')
+        if (data.userExists) {
+          alert('User already exists')
+
+          setOpen((prevState) => ({
+            ...prevState,
+            registerAccount: !prevState.registerAccount,
+            signIn: !prevState.signIn,
+          }))
+        } else {
+          // Proceed with the next steps of registration
+          setOpen((prevState) => ({
+            ...prevState,
+            registerAccount: !prevState.registerAccount,
+            createAccount: !prevState.createAccount,
+          }))
+        }
+      } catch (error) {
+        console.error('Error checking user existence:', error)
+      }
+    }
+
+    checkUserExists(email)
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleCreateAccount(e)
+    }
   }
 
   const handleSignIn = () => {
@@ -47,7 +80,15 @@ const RegisterAccount = ({ open, onClose, setOpen }) => {
             <span className='or'>Or</span>
             <hr className='line' />
           </div>
-          <input type='email' placeholder='Email' className='input' />
+          <input
+            type='email'
+            placeholder='Email'
+            className='input'
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            onKeyPress={handleKeyPress}
+          />
+
           <button
             className='btn btn-mv dfacjc field-pad'
             onClick={handleCreateAccount}

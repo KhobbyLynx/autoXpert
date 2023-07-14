@@ -12,6 +12,8 @@ import ForgetPasswordEmailConfirm from '../../../components/accountForm/ForgetPa
 import JoinAs from '../../../components/accountForm/JoinAs'
 
 const MainLayout = () => {
+  const [email, setEmail] = useState('')
+
   const [open, setOpen] = useState({
     registerAccount: false,
     createAccount: false,
@@ -50,12 +52,15 @@ const MainLayout = () => {
         open={open.registerAccount}
         onClose={() => setOpen(false)}
         setOpen={setOpen}
+        email={email}
+        setEmail={setEmail}
       />
       <CreateAccount
         open={open.createAccount}
         onClose={() => setOpen(false)}
         back={backButton}
         setOpen={setOpen}
+        email={email}
       />
       <Navbar setOpen={setOpen} />
       <Outlet />

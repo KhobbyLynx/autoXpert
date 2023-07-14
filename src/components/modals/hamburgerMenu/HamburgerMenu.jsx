@@ -14,7 +14,7 @@ const HamburgerMenu = ({ setHamburgerMenu, hamburgerMenu }) => {
     shop: '/shop',
     blog: '/blog',
   }
-  console.log(hamburgerMenu)
+
   return (
     <div
       className={`hamburger-menu df fdc ${
