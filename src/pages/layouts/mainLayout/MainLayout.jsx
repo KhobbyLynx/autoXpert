@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import './MainLayout.scss'
 import Navbar from '../../../components/navbar/Navbar'
@@ -13,6 +13,8 @@ import JoinAs from '../../../components/accountForm/JoinAs'
 
 const MainLayout = () => {
   const [email, setEmail] = useState('')
+  const [errorMsg, setErrorMsg] = useState('')
+  const [pending, setPending] = useState(false)
 
   const [open, setOpen] = useState({
     registerAccount: false,
@@ -23,7 +25,21 @@ const MainLayout = () => {
     joinAs: false,
   })
 
-  const [backButton, setBackButton] = useState(true)
+  let backButton = true
+
+  useEffect(() => {
+    let timeId
+
+    if (errorMsg) {
+      timeId = setTimeout(() => {
+        setErrorMsg('')
+      }, 3000)
+    }
+
+    return () => {
+      clearTimeout(timeId)
+    }
+  }, [errorMsg])
 
   return (
     <>
@@ -47,6 +63,10 @@ const MainLayout = () => {
         open={open.signIn}
         onClose={() => setOpen(false)}
         setOpen={setOpen}
+        setPending={setPending}
+        setErrorMsg={setErrorMsg}
+        errorMsg={errorMsg}
+        pending={pending}
       />
       <RegisterAccount
         open={open.registerAccount}
@@ -54,6 +74,10 @@ const MainLayout = () => {
         setOpen={setOpen}
         email={email}
         setEmail={setEmail}
+        pending={pending}
+        setPending={setPending}
+        setErrorMsg={setErrorMsg}
+        errorMsg={errorMsg}
       />
       <CreateAccount
         open={open.createAccount}
@@ -61,8 +85,18 @@ const MainLayout = () => {
         back={backButton}
         setOpen={setOpen}
         email={email}
+        pending={pending}
+        setPending={setPending}
+        setErrorMsg={setErrorMsg}
+        errorMsg={errorMsg}
       />
-      <Navbar setOpen={setOpen} />
+      <Navbar
+        setOpen={setOpen}
+        setPending={setPending}
+        setErrorMsg={setErrorMsg}
+        errorMsg={errorMsg}
+        pending={pending}
+      />
       <Outlet />
       <Footer />
     </>
