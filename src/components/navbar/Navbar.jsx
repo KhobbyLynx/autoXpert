@@ -12,7 +12,7 @@ import UserMenuDropdown from '../modals/userMenuDropdown/UserMenuDropdown'
 import HamburgerMenu from '../modals/hamburgerMenu/HamburgerMenu'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({ setOpen }) => {
+const Navbar = ({ setOpen, setPending, setErrorMsg, errorMsg, pending }) => {
   const shopDropdownRef = useRef(null)
   const moreDropdownRef = useRef(null)
   const accountDropdownRef = useRef(null)
@@ -68,7 +68,7 @@ const Navbar = ({ setOpen }) => {
     }))
   }
 
-  let currentUser
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'))
 
   return (
     <div>
@@ -150,10 +150,15 @@ const Navbar = ({ setOpen }) => {
                 <div className='profile-img dfac'>
                   <FaRegUser className='profile-icon' />
                 </div>
-                <span>John Stones</span>
+                <span>{currentUser.name}</span>
               </button>
               <div className={` ${dropdown.usermenu ? 'active' : 'inactive'}`}>
-                <UserMenuDropdown />
+                <UserMenuDropdown
+                  setPending={setPending}
+                  errorMsg={errorMsg}
+                  setErrorMsg={setErrorMsg}
+                  pending={pending}
+                />
               </div>
             </div>
           )}
