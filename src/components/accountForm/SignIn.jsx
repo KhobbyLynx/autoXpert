@@ -1,11 +1,91 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import { FaApple } from 'react-icons/fa'
 import Modal from '../portal/Modal'
 import './GeneralFormStyle.scss'
+import { Link, useNavigate } from 'react-router-dom'
+import newRequest from '../../utils/newRequest'
 
-const SignIn = ({ open, onClose, setOpen }) => {
+const SignIn = ({
+  open,
+  onClose,
+  setOpen,
+  setPending,
+  errorMsg,
+  setErrorMsg,
+  pending,
+}) => {
+  const navigate = useNavigate()
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      }
+    })
+  }
+
+  const handleSignUp = (e) => {
+    e.preventDefault()
+
+    if (formData.password.length < 8) {
+      setErrorMsg('Incorrect password')
+      return
+    }
+
+    setPending(true)
+
+    setTimeout(() => {
+      let loginSuccessful = true
+      const userFromCart = JSON.parse(localStorage.getItem('fromCart'))
+
+      const request = async () => {
+        try {
+          const res = await newRequest.post('/users/login', {
+            email: formData.email,
+            password: formData.password,
+          })
+          localStorage.setItem('currentUser', JSON.stringify(res.data))
+        } catch (error) {
+          setPending(false)
+          loginSuccessful = false
+
+          const statusCode = error.response.status
+          if (statusCode === 400) {
+            setErrorMsg(error.response.data.message)
+          } else if (statusCode === 5000) {
+            setErrorMsg(error.response.statusText)
+          } else {
+            setErrorMsg('something went wrong')
+          }
+
+          return
+        } finally {
+          if (loginSuccessful) {
+            if (userFromCart) {
+              setOpen(false)
+              navigate('/cart/checkout')
+              localStorage.removeItem('fromCart')
+            } else {
+              setOpen(false)
+              navigate('/')
+            }
+            setTimeout(() => {
+              setPending(false)
+            }, 3000)
+          }
+        }
+      }
+      return request()
+    }, 2000)
+  }
+
   const handleForgotPassword = () => {
     setOpen((prevState) => ({
       ...prevState,
@@ -30,7 +110,7 @@ const SignIn = ({ open, onClose, setOpen }) => {
   }
   return (
     <>
-      <Modal open={open} onClose={onClose}>
+      <Modal open={open} onClose={onClose} pending={pending}>
         <div className='reg-user df fdc'>
           <h3>Sign In</h3>
           <button className='btn btn-tr dfacjc field-pad'>
@@ -46,11 +126,32 @@ const SignIn = ({ open, onClose, setOpen }) => {
             <span className='or'>Or</span>
             <hr className='line' />
           </div>
-          <input type='email' placeholder='Email' className='input' />
-          <input type='password' placeholder='Password' className='input' />
-          <button className='btn btn-mv dfacjc field-pad'>
-            <span className='btn-text'>Sign In</span>
-          </button>
+          <form onSubmit={handleSignUp} className='df fdc gap-20'>
+            <input
+              type='email'
+              placeholder='Email'
+              className='input'
+              value={formData.email}
+              onChange={handleChange}
+              name='email'
+              required
+            />
+            <input
+              type='password'
+              placeholder='Password'
+              className='input'
+              onChange={handleChange}
+              value={formData.password}
+              name='password'
+              required
+            />
+            <div>
+              {errorMsg && <span className='error-msg'>{errorMsg}</span>}
+              <button className='btn btn-mv dfacjc field-pad'>
+                <span className='btn-text'>Sign In</span>
+              </button>
+            </div>
+          </form>
           <div className='form-text df fdc'>
             <p>
               By Signing up, you agree to our{' '}
