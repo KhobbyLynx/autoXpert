@@ -54,40 +54,45 @@ export const mobileMenu = [
   },
 ]
 
-export const mobileMenuCategory = [
+export const carTypes = [
   {
     id: 1,
-    text: 'clothing',
-    icon: 'https://res.cloudinary.com/khobbylynx/image/upload/v1688345491/lynxmart/img/icons/fashion_fthyls.png',
+    text: 'Brand New',
   },
   {
     id: 2,
-    text: 'phones',
-    icon: 'https://res.cloudinary.com/khobbylynx/image/upload/v1688345490/lynxmart/img/icons/phone_m7x4py.png',
+    text: 'Foreign Used Cars',
   },
   {
     id: 3,
-    text: 'computing',
-    icon: 'https://res.cloudinary.com/khobbylynx/image/upload/v1688345491/lynxmart/img/icons/computing_dzulzf.png',
+    text: 'Ghanaian Used Cars',
+  },
+]
+
+export const topBrands = [
+  {
+    id: 1,
+    text: 'Mercedes Benz',
+    icon: '',
+  },
+  {
+    id: 2,
+    text: 'Ford',
+    icon: '',
+  },
+  {
+    id: 3,
+    text: 'Audi',
+    icon: '',
   },
   {
     id: 4,
-    text: 'health & beauty',
-    icon: 'https://res.cloudinary.com/khobbylynx/image/upload/v1688345491/lynxmart/img/icons/beauty_ejep6r.png',
+    text: 'Toyota',
+    icon: '',
   },
   {
     id: 5,
-    text: 'electronics',
-    icon: 'https://res.cloudinary.com/khobbylynx/image/upload/v1688345491/lynxmart/img/icons/electronics_shervg.png',
-  },
-  {
-    id: 6,
-    text: 'sports',
-    icon: 'https://res.cloudinary.com/khobbylynx/image/upload/v1688345490/lynxmart/img/icons/sports_rmbih5.png',
-  },
-  {
-    id: 7,
-    text: 'Home & office',
-    icon: 'https://res.cloudinary.com/khobbylynx/image/upload/v1688345491/lynxmart/img/icons/office_ghqzbu.png',
+    text: 'Kia',
+    icon: '',
   },
 ]

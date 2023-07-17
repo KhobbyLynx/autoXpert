@@ -3,7 +3,7 @@ import { AiOutlineRight } from 'react-icons/ai'
 import { RiCloseFill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
 import { images } from '../../../constants'
-import { mobileMenu, mobileMenuCategory } from '../../../data'
+import { carTypes, mobileMenu, topBrands } from '../../../data'
 import './HamburgerMenu.scss'
 
 const HamburgerMenu = ({ setHamburgerMenu, hamburgerMenu }) => {
@@ -92,15 +92,29 @@ const HamburgerMenu = ({ setHamburgerMenu, hamburgerMenu }) => {
           }))
         }
       >
-        <h3>Our Category</h3>
+        <h3>Car Condition</h3>
         <AiOutlineRight className='arrow-right' />
       </div>
-      {mobileMenuCategory.map((item) => (
-        <div
-          className='hamburger-menu__tab navlist dfac'
-          key={item.id}
-          //   onClick={() => handleFilterChange('cat', item.text)}
-        >
+      {carTypes.map((item) => (
+        <div className='hamburger-menu__tab navlist dfac' key={item.id}>
+          <img className='menu-icon' src={item.icon} alt='' />
+          <span>{item.text}</span>
+        </div>
+      ))}
+      <div
+        className='hamburger-menu__head-tab df jsb'
+        onClick={() =>
+          setHamburgerMenu((prevState) => ({
+            ...prevState,
+            hamburgerMenu: !prevState.hamburgerMenu,
+          }))
+        }
+      >
+        <h3>Top Brands</h3>
+        <AiOutlineRight className='arrow-right' />
+      </div>
+      {topBrands.map((item) => (
+        <div className='hamburger-menu__tab navlist dfac' key={item.id}>
           <img className='menu-icon' src={item.icon} alt='' />
           <span>{item.text}</span>
         </div>
