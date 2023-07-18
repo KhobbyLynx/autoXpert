@@ -10,6 +10,8 @@ import SignIn from '../../../components/accountForm/SignIn'
 import ForgetPassword from '../../../components/accountForm/ForgetPassword'
 import ForgetPasswordEmailConfirm from '../../../components/accountForm/ForgetPasswordEmailConfirm'
 import JoinAs from '../../../components/accountForm/JoinAs'
+import PrivateSellerForm from '../../../components/accountForm/PrivateSellerForm'
+import MakePaymentForm from '../../../components/accountForm/MakePaymentForm'
 
 const MainLayout = () => {
   const [email, setEmail] = useState('')
@@ -23,6 +25,7 @@ const MainLayout = () => {
     forgotPassword: false,
     confirmForgotPassword: false,
     joinAs: false,
+    makePayment: false,
   })
 
   let backButton = true
@@ -43,6 +46,25 @@ const MainLayout = () => {
 
   return (
     <>
+      <div className='hide'>
+        <PrivateSellerForm
+          pending={pending}
+          setPending={setPending}
+          setErrorMsg={setErrorMsg}
+          errorMsg={errorMsg}
+        />
+      </div>
+      <MakePaymentForm
+        open={open.makePayment}
+        onClose={() => setOpen(false)}
+        back={backButton}
+        setOpen={setOpen}
+        email={email}
+        pending={pending}
+        setPending={setPending}
+        setErrorMsg={setErrorMsg}
+        errorMsg={errorMsg}
+      />
       <JoinAs
         open={open.joinAs}
         onClose={() => setOpen(false)}
