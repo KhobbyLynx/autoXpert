@@ -96,3 +96,44 @@
         color: var(--green-600);
     }
 }
+
+.seller-form {
+    margin: 40px 80px;
+
+    @media screen and (min-width: 1500px) {
+        margin: 50px 160px;
+    }
+
+    @media screen and (max-width: 599px) {
+        margin: 20px;
+        .df {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .imagePreview {
+        width: 82px;
+        height: 82px;
+        border-radius: 50%;
+        outline: 2px solid var(--tertiary-bg);
+
+        .icon {
+            color: var(--tertiary-bg);
+            font-size: 80px;
+            margin: auto;
+        }
+        .company-icon {
+            color: var(--tertiary-bg);
+            font-size: 50px;
+            margin: auto;
+        }
+    }
+
+    .cardPreview {
+        .card-icon {
+            color: var(--tertiary-bg);
+            font-size: 140px;
+            cursor: pointer;
+        }
+    }
+}
