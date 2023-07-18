@@ -62,13 +62,24 @@
 .gap-20 {
   gap: 20px;
 }
-
+.pb-5 {
+  padding-bottom: 5px;
+}
 .ptb-10 {
   padding: 10px 0;
 }
 
 .mt20 {
   margin-top: 20px;
+}
+
+.text-align {
+  text-align: center;
+}
+
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .no-product-found {
