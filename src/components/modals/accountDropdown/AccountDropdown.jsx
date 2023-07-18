@@ -22,9 +22,23 @@ const AccountDropdown = ({ setOpen, setDropdown }) => {
       account: !prevState.account,
     }))
   }
+
+  const handlePaymentClick = () => {
+    setOpen((prevState) => ({
+      ...prevState,
+      makePayment: !prevState.makePayment,
+    }))
+    setDropdown((prevState) => ({
+      ...prevState,
+      account: !prevState.account,
+    }))
+  }
+
   return (
     <div className='account-dropdown dropdown df fdc gap-10'>
-      <button className='btn btn-mv btn-pad'>Make Payment</button>
+      <button className='btn btn-mv btn-pad' onClick={handlePaymentClick}>
+        Make Payment
+      </button>
       <button className='btn btn-bg btn-pad' onClick={handleLoginClick}>
         Login
       </button>
