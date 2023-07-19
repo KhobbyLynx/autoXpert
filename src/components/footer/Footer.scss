@@ -97,4 +97,11 @@
     h5 {
         color: var(--bluish-green);
     }
+    .footer-copyright {
+        padding: 10px;
+        p {
+            font-size: 13px;
+            color: var(--gray-400);
+        }
+    }
 }
