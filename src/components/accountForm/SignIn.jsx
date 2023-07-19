@@ -13,7 +13,6 @@ const SignIn = ({
   setPending,
   errorMsg,
   setErrorMsg,
-  pending,
 }) => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
@@ -110,7 +109,7 @@ const SignIn = ({
   }
   return (
     <>
-      <Modal open={open} onClose={onClose} pending={pending}>
+      <Modal open={open} onClose={onClose}>
         <div className='reg-user df fdc'>
           <h3>Sign In</h3>
           <button className='btn btn-tr dfacjc field-pad'>
