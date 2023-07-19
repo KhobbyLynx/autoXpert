@@ -4,13 +4,7 @@ import { FaUserCircle, FaAddressCard } from 'react-icons/fa'
 import './GeneralFormStyle.scss'
 import newRequest from '../../utils/newRequest'
 
-const PrivateSellerForm = ({
-  setOpen,
-  pending,
-  setPending,
-  errorMsg,
-  setErrorMsg,
-}) => {
+const PrivateSellerForm = ({ setOpen, setPending, errorMsg, setErrorMsg }) => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     firstname: '',
@@ -151,7 +145,6 @@ const PrivateSellerForm = ({
               onChange={handleChange}
               placeholder='Phone Number'
               className='input'
-              inputMode
               required
             />
             <input
