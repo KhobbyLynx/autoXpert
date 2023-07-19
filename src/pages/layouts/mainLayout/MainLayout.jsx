@@ -12,6 +12,7 @@ import ForgetPasswordEmailConfirm from '../../../components/accountForm/ForgetPa
 import JoinAs from '../../../components/accountForm/JoinAs'
 import PrivateSellerForm from '../../../components/accountForm/PrivateSellerForm'
 import MakePaymentForm from '../../../components/accountForm/MakePaymentForm'
+import SpinnerLoader from '../../../components/loader/SpinnerLoader'
 
 const MainLayout = () => {
   const [email, setEmail] = useState('')
@@ -46,9 +47,10 @@ const MainLayout = () => {
 
   return (
     <>
+      {pending && <SpinnerLoader />}
+
       <div className='hide'>
         <PrivateSellerForm
-          pending={pending}
           setPending={setPending}
           setErrorMsg={setErrorMsg}
           errorMsg={errorMsg}
@@ -60,7 +62,6 @@ const MainLayout = () => {
         back={backButton}
         setOpen={setOpen}
         email={email}
-        pending={pending}
         setPending={setPending}
         setErrorMsg={setErrorMsg}
         errorMsg={errorMsg}
@@ -88,7 +89,6 @@ const MainLayout = () => {
         setPending={setPending}
         setErrorMsg={setErrorMsg}
         errorMsg={errorMsg}
-        pending={pending}
       />
       <RegisterAccount
         open={open.registerAccount}
@@ -96,7 +96,6 @@ const MainLayout = () => {
         setOpen={setOpen}
         email={email}
         setEmail={setEmail}
-        pending={pending}
         setPending={setPending}
         setErrorMsg={setErrorMsg}
         errorMsg={errorMsg}
@@ -107,7 +106,6 @@ const MainLayout = () => {
         back={backButton}
         setOpen={setOpen}
         email={email}
-        pending={pending}
         setPending={setPending}
         setErrorMsg={setErrorMsg}
         errorMsg={errorMsg}
@@ -117,10 +115,13 @@ const MainLayout = () => {
         setPending={setPending}
         setErrorMsg={setErrorMsg}
         errorMsg={errorMsg}
-        pending={pending}
       />
-      <Outlet />
-      <Footer />
+      <div className='outlet'>
+        <Outlet />
+      </div>
+      <div className='footer'>
+        <Footer />
+      </div>
     </>
   )
 }
