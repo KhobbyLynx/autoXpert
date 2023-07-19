@@ -1,0 +1,100 @@
+.footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 40px;
+    background-color: var(--primary-bg);
+
+    .footer__logo {
+        padding-bottom: 48px;
+        img {
+            width: 160px;
+        }
+    }
+    .footer__content {
+        display: flex;
+        align-items: start;
+        gap: 60px;
+        @media screen and (max-width: "999px") {
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer__contact {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            .contact__section {
+                padding-bottom: 40px;
+                .contact__info {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            .socials__section {
+                .social__icons {
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    gap: 12px;
+                    font-size: 18px;
+                    color: var(--gray-200);
+                    .icon {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .footer__links {
+            display: flex;
+            gap: 60px;
+
+            @media screen and (max-width: "299px") {
+                flex-direction: column;
+                align-self: start;
+            }
+
+            .footer__about {
+                display: flex;
+                align-items: start;
+                flex-direction: column;
+            }
+            .footer__account {
+                display: flex;
+                align-items: start;
+                flex-direction: column;
+            }
+        }
+        .footer__others {
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+            .p-footer {
+                font-size: 13px;
+                font-weight: 500;
+                padding-top: 10px;
+                color: var(--bluish-green);
+            }
+            .payment-gateways {
+                width: 30px;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    h2 {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--gray-200);
+        padding-bottom: 20px;
+    }
+    .span {
+        font-size: 14px;
+        padding-bottom: 10px;
+        color: var(--gray-500);
+    }
+    h5 {
+        color: var(--bluish-green);
+    }
+}
