@@ -12,7 +12,7 @@ import UserMenuDropdown from '../modals/userMenuDropdown/UserMenuDropdown'
 import HamburgerMenu from '../modals/hamburgerMenu/HamburgerMenu'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({ setOpen, setPending, setErrorMsg, errorMsg, pending }) => {
+const Navbar = ({ setOpen, setPending, setErrorMsg, errorMsg }) => {
   const shopDropdownRef = useRef(null)
   const moreDropdownRef = useRef(null)
   const accountDropdownRef = useRef(null)
@@ -157,7 +157,6 @@ const Navbar = ({ setOpen, setPending, setErrorMsg, errorMsg, pending }) => {
                   setPending={setPending}
                   errorMsg={errorMsg}
                   setErrorMsg={setErrorMsg}
-                  pending={pending}
                 />
               </div>
             </div>
