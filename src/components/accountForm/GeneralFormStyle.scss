@@ -83,6 +83,18 @@
         font-weight: 300;
         color: var(--gray-200);
     }
+
+    .powered-by {
+        font-size: 12px;
+        font-weight: 300;
+        color: var(--gray-600);
+    }
+    .payment-gateways {
+        width: 30px;
+        img {
+            width: 100%;
+        }
+    }
 }
 
 .forgot-password__email {
