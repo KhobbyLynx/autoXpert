@@ -3,9 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { dropdown } from '../../../data'
 import './UserMenuDropdown.scss'
 import newRequest from '../../../utils/newRequest'
-import SpinnerLoader from '../../loader/SpinnerLoader'
 
-const UserMenuDropdown = ({ setErrorMsg, setPending, errorMsg, pending }) => {
+const UserMenuDropdown = ({ setErrorMsg, setPending, errorMsg }) => {
   const navigate = useNavigate()
   const linkToRouteMap = {
     'my account': '.',
@@ -38,7 +37,6 @@ const UserMenuDropdown = ({ setErrorMsg, setPending, errorMsg, pending }) => {
         navigate('/')
       }
     } catch (error) {
-      console.log(error)
       setPending(false)
       const statusCode = error.response.status
       if (statusCode === 400) {
@@ -54,8 +52,6 @@ const UserMenuDropdown = ({ setErrorMsg, setPending, errorMsg, pending }) => {
 
   return (
     <>
-      {pending && <SpinnerLoader />}
-
       <div className='menu-container'>
         <div className='menu-drop'>
           <h3 className='dfac fdc'>
