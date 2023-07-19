@@ -10,7 +10,6 @@ const CreateAccount = ({
   back,
   setOpen,
   email,
-  pending,
   setPending,
   errorMsg,
   setErrorMsg,
@@ -116,13 +115,7 @@ const CreateAccount = ({
 
   return (
     <>
-      <Modal
-        open={open}
-        onClose={onClose}
-        back={back}
-        goBack={handleGoBack}
-        pending={pending}
-      >
+      <Modal open={open} onClose={onClose} back={back} goBack={handleGoBack}>
         <div className='reg-user df fdc'>
           <h3>Create an account</h3>
 
