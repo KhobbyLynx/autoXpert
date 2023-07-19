@@ -3,7 +3,7 @@ import { SiFacebook, SiTwitter, SiInstagram, SiTiktok } from 'react-icons/si'
 import './Footer.scss'
 import { Link } from 'react-router-dom'
 import { images } from '../../constants'
-import CopyRight from '../copyRight/CopyRight'
+// import CopyRight from '../copyRight/CopyRight'
 
 const Footer = () => {
   const linkToRouteMap = {
@@ -128,7 +128,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <CopyRight />
+      {/* <CopyRight /> */}
     </div>
   )
 }
