@@ -8,7 +8,6 @@ const MakePaymentForm = ({
   open,
   onClose,
   setOpen,
-  pending,
   setPending,
   errorMsg,
   setErrorMsg,
@@ -38,12 +37,11 @@ const MakePaymentForm = ({
       let signUpSuccessful = true
 
       const request = async () => {
-        const { firstname, lastname, password } = formData
+        const { reference, amount } = formData
         try {
-          const res = await newRequest.post('/users', {
-            name: `${firstname} ${lastname}`,
-            email,
-            password,
+          const res = await newRequest.post('/payment', {
+            reference,
+            amount,
           })
 
           // when error with statusCode 500 occurs, currentUser is set to a messagem hence the need to removeItem if it exist
@@ -86,13 +84,14 @@ const MakePaymentForm = ({
 
   return (
     <>
-      <Modal open={open} onClose={onClose} pending={pending}>
+      <Modal open={open} onClose={onClose}>
         <div className='reg-user df fdc'>
           <div>
             <h3>Make Payment</h3>
-            <h6>
-              Secure Payment <span>powered by PayStack</span>
-            </h6>
+            <p>
+              Secure Payment{' '}
+              <span className='powered-by'>powered by PayStack</span>
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className='df fdc gap-20'>
@@ -123,6 +122,12 @@ const MakePaymentForm = ({
           </form>
           <div className='form-text df fdc'>
             <p>Secure Payment Gateways</p>
+            <div className='payment-gateways dfac gap-5'>
+              <img src='https://res.cloudinary.com/dky6qdzt0/image/upload/v1689796701/autoXpert/pay/Mastercard_gudv3a.png' />
+              <img src='https://res.cloudinary.com/dky6qdzt0/image/upload/v1689796699/autoXpert/pay/Visa_oc7tsg.png' />
+              <img src='https://res.cloudinary.com/dky6qdzt0/image/upload/v1689796701/autoXpert/pay/Vodafone-Cash-Logo_lgeocf.jpg' />
+              <img src='https://res.cloudinary.com/dky6qdzt0/image/upload/v1689796700/autoXpert/pay/momo-logo_ehkxvu.png' />
+            </div>
           </div>
         </div>
       </Modal>
