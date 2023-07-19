@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom'
 import { AiOutlineClose } from 'react-icons/ai'
 import { MdKeyboardBackspace } from 'react-icons/md'
 import './Modal.scss'
-import SpinnerLoader from '../loader/SpinnerLoader'
 
-const Modal = ({ children, open, onClose, back, goBack, pending }) => {
+const Modal = ({ children, open, onClose, back, goBack }) => {
   if (!open) return null
   return ReactDOM.createPortal(
     <>
-      {pending && <SpinnerLoader />}
       <div className='overlay' />
       <div className='modal'>
         <div className='icon-container dfac jsb'>
