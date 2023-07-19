@@ -12,7 +12,6 @@ const RegisterAccount = ({
   setOpen,
   email,
   setEmail,
-  pending,
   setPending,
   errorMsg,
   setErrorMsg,
@@ -82,7 +81,7 @@ const RegisterAccount = ({
   }
   return (
     <>
-      <Modal open={open} onClose={onClose} pending={pending}>
+      <Modal open={open} onClose={onClose}>
         <div className='reg-user df fdc'>
           <h3>Create an account</h3>
           <button className='btn btn-tr dfacjc field-pad'>
