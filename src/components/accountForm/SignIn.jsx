@@ -41,24 +41,24 @@ const SignIn = ({
     setPending(true)
 
     setTimeout(() => {
-      let loginSuccessful = true
-      const userFromCart = JSON.parse(localStorage.getItem('fromCart'))
-
+      let loginSucess = true
       const request = async () => {
         try {
           const res = await newRequest.post('/users/login', {
             email: formData.email,
             password: formData.password,
           })
+          console.log(res)
           localStorage.setItem('currentUser', JSON.stringify(res.data))
         } catch (error) {
           setPending(false)
-          loginSuccessful = false
+          loginSucess = false
+          console.log(error.response)
 
           const statusCode = error.response.status
           if (statusCode === 400) {
             setErrorMsg(error.response.data.message)
-          } else if (statusCode === 5000) {
+          } else if (statusCode === 500) {
             setErrorMsg(error.response.statusText)
           } else {
             setErrorMsg('something went wrong')
@@ -66,19 +66,13 @@ const SignIn = ({
 
           return
         } finally {
-          if (loginSuccessful) {
-            if (userFromCart) {
-              setOpen(false)
-              navigate('/cart/checkout')
-              localStorage.removeItem('fromCart')
-            } else {
-              setOpen(false)
-              navigate('/')
-            }
-            setTimeout(() => {
-              setPending(false)
-            }, 3000)
+          if (loginSucess) {
+            setOpen(false)
           }
+          navigate('/')
+          setTimeout(() => {
+            setPending(false)
+          }, 3000)
         }
       }
       return request()
