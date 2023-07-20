@@ -2,7 +2,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 20px 40px;
+    padding: 20px;
+    padding-bottom: 0;
     background-color: var(--primary-bg);
 
     .footer__logo {
@@ -88,6 +89,7 @@
         font-weight: 500;
         color: var(--gray-200);
         padding-bottom: 20px;
+        white-space: nowrap;
     }
     .span {
         font-size: 14px;
@@ -99,9 +101,11 @@
     }
     .footer-copyright {
         padding: 10px;
+
         p {
             font-size: 13px;
             color: var(--gray-400);
+            white-space: nowrap;
         }
     }
 }
