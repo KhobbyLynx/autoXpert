@@ -13,8 +13,10 @@ import JoinAs from '../../../components/accountForm/JoinAs'
 import PrivateSellerForm from '../../../components/accountForm/PrivateSellerForm'
 import MakePaymentForm from '../../../components/accountForm/MakePaymentForm'
 import SpinnerLoader from '../../../components/loader/SpinnerLoader'
+import Newsletter from '../../../components/newsletter/Newsletter'
 
 const MainLayout = () => {
+  const [online, setOnline] = useState(true)
   const [email, setEmail] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
   const [pending, setPending] = useState(false)
@@ -45,8 +47,18 @@ const MainLayout = () => {
     }
   }, [errorMsg])
 
+  useEffect(() => {
+    const online = navigator.onLine
+    if (online) {
+      setOnline(true)
+    } else {
+      setOnline(false)
+    }
+  }, [navigator.onLine])
+
   return (
     <>
+      {!online && alert('INTERNET DISCONNECTED')}
       {pending && <SpinnerLoader />}
 
       <div className='hide'>
@@ -118,6 +130,9 @@ const MainLayout = () => {
       />
       <div className='outlet'>
         <Outlet />
+      </div>
+      <div>
+        <Newsletter />
       </div>
       <div className='footer'>
         <Footer />
